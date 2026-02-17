@@ -15,6 +15,8 @@ Build and run ZeroClaw on Android using [Termux](https://f-droid.org/en/packages
 - **Storage permission:** Android → Settings → Apps → Termux → Permissions → enable Storage (or “Files and media”). Required for Path B (script pushed to `/sdcard/`) and for Path A if you use adb to put the script on the phone.
 - **API key and provider** for ZeroClaw (e.g. OpenRouter), or an existing `~/.zeroclaw/config.toml` to copy to the device. You’ll use these after the build.
 
+- **Long builds (1–2+ h):** So the build doesn't stop when the screen goes off: enable **Developer options → Stay awake** (screen never sleeps while charging) and plug in the phone. Set **Settings → Apps → Termux → Battery → Unrestricted** (or "Don't optimize") so Android doesn't kill Termux when the screen is off.
+
 **Path B only:** USB cable; adb on the host. Linux:
 
 ```bash
@@ -38,6 +40,8 @@ curl -Lo ~/termux-install.sh https://raw.githubusercontent.com/zeroclaw-labs/zer
 ```bash
 bash ~/termux-install.sh
 ```
+
+If the build will run a long time (or overnight), use Stay awake + Termux battery Unrestricted (see Prerequisites).
 
 **3. Configure ZeroClaw**
 
@@ -146,6 +150,8 @@ In the **SSH session** (Termux on the phone), copy from `/sdcard/` to home and r
 cp /sdcard/termux-install.sh ~/
 bash ~/termux-install.sh
 ```
+
+If the build will run a long time (or overnight), on the phone enable Stay awake while charging and Termux battery Unrestricted (see Prerequisites).
 
 **B.4 — Configure ZeroClaw**
 
