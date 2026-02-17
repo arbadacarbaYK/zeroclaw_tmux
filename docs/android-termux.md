@@ -111,9 +111,22 @@ From the **host**, SSH into Termux (replace `<TERMUX_USER>` with the value from 
 ssh -o StrictHostKeyChecking=no -p 8023 <TERMUX_USER>@127.0.0.1
 ```
 
-You are now in a shell inside Termux on the phone. Use **adb forward** (host → device), not adb reverse. If you get “Connection refused”, run `sshd` again in Termux and run `adb forward tcp:8023 tcp:8022` again on the host (forward is lost after unplug).
+You are now in a shell inside Termux on the phone. Use **adb forward** (host → device), not adb reverse. If you get “Connection refused”, in Termux run `sshd` again; on the host run `adb forward tcp:8023 tcp:8022` again (forward is lost after unplug).
 
-Optional key-based auth: on the host run `cat ~/.ssh/id_ed25519.pub` (or your key path). In the Termux SSH session: `mkdir -p ~/.ssh`, then append that one line to `~/.ssh/authorized_keys`. Next logins use the key.
+Optional key-based auth. On the **host**, show your public key and copy the full line:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+In the **Termux SSH session**:
+
+```bash
+mkdir -p ~/.ssh
+cat >> ~/.ssh/authorized_keys
+```
+
+Paste the line from the host, then press Enter and `Ctrl+d`. Next logins use the key.
 
 **B.3 — Get the install script onto the phone and run it**
 
@@ -154,7 +167,15 @@ In the SSH session (or in Termux on the phone):
 ~/zeroclaw/target/release/zeroclaw agent
 ```
 
-Or `gateway`, `daemon`, etc. Use tmux so the process survives disconnect: `pkg install tmux`, then run the zeroclaw command inside tmux.
+Or `gateway`, `daemon`, etc. To keep it running after you disconnect SSH:
+
+```bash
+pkg install tmux
+tmux
+~/zeroclaw/target/release/zeroclaw agent
+```
+
+Detach from tmux: `Ctrl+b` then `d`. Reattach later: `tmux attach`.
 
 **Alternative to B.3 (manual build from SSH session):** In the SSH session (Termux):
 
