@@ -15,7 +15,11 @@ Build and run ZeroClaw on Android using [Termux](https://f-droid.org/en/packages
 - **Storage permission:** Android → Settings → Apps → Termux → Permissions → enable Storage (or “Files and media”). Required for Path B (script pushed to `/sdcard/`) and for Path A if you use adb to put the script on the phone.
 - **API key and provider** for ZeroClaw (e.g. OpenRouter), or an existing `~/.zeroclaw/config.toml` to copy to the device. You’ll use these after the build.
 
-**Path B only:** USB cable; adb on the host (e.g. Linux: `sudo apt-get install -y android-tools-adb`).
+**Path B only:** USB cable; adb on the host. Linux:
+
+```bash
+sudo apt-get install -y android-tools-adb
+```
 
 ---
 
