@@ -1,6 +1,6 @@
 # Running ZeroClaw on Android (Termux)
 
-Build and run ZeroClaw on Android using [Termux](https://f-droid.org/en/packages/com.termux/) (F-Droid only; Play Store build is deprecated). Termux supports Android 5.0+; use the F-Droid build that matches your Android version. Build can take 15–30+ minutes on low-RAM devices.
+Build and run ZeroClaw on Android using [Termux](https://f-droid.org/en/packages/com.termux/) (F-Droid only; Play Store build is deprecated). Termux supports Android 5.0+; use the F-Droid build that matches your Android version. Build can take 1–2+ hours on low-RAM devices (e.g. ~2.8 GB RAM); 30–60 minutes on faster devices.
 
 **Two ways:**
 
