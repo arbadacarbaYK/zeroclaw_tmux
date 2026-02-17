@@ -128,6 +128,12 @@ ls -lh target/release/zeroclaw
 
 </details>
 
+<details>
+<summary><strong>Android (Termux)</strong></summary>
+
+See [docs/android-termux.md](docs/android-termux.md) for building and running ZeroClaw on Android devices (e.g. old phones) via Termux — including a one-shot install script and optional SSH from your laptop over USB.
+
+</details>
 
 ## Quick Start
 
