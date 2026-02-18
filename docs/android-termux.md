@@ -72,10 +72,10 @@ pkg update -y && pkg upgrade -y
 pkg install -y git rust
 git clone https://github.com/zeroclaw-labs/zeroclaw.git
 cd zeroclaw
-CARGO_BUILD_JOBS=1 cargo build --release
+CARGO_BUILD_JOBS=1 cargo build --release --no-default-features
 ```
 
-Then do steps 3 and 4. Binary is at `~/zeroclaw/target/release/zeroclaw`.
+On Android the default "hardware" feature (USB discovery) is not supported and would cause a compile error; `--no-default-features` builds the agent/gateway without it. Binary is at `~/zeroclaw/target/release/zeroclaw`. Then do steps 3 and 4.
 
 ---
 
@@ -194,10 +194,10 @@ pkg update -y && pkg upgrade -y
 pkg install -y git rust
 git clone https://github.com/zeroclaw-labs/zeroclaw.git
 cd zeroclaw
-CARGO_BUILD_JOBS=1 cargo build --release
+CARGO_BUILD_JOBS=1 cargo build --release --no-default-features
 ```
 
-Then do B.4 and B.5. Binary: `~/zeroclaw/target/release/zeroclaw`.
+On Android use `--no-default-features` (hardware/USB discovery is not supported and would fail to compile). Then do B.4 and B.5. Binary: `~/zeroclaw/target/release/zeroclaw`.
 
 ---
 

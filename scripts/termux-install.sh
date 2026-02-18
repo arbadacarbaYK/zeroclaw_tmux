@@ -26,7 +26,9 @@ else
 fi
 
 echo "--- Building (single job to be nice to RAM). This is the long part. ---"
-CARGO_BUILD_JOBS=1 cargo build --release
+# On Android, default "hardware" feature uses nusb::list_devices() which is not available;
+# --no-default-features builds software-only (agent, gateway, etc.) and avoids compile failure.
+CARGO_BUILD_JOBS=1 cargo build --release --no-default-features
 
 echo ""
 echo "=== Done. Binary at: ~/zeroclaw/target/release/zeroclaw ==="
